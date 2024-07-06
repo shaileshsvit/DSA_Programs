@@ -31,16 +31,22 @@ static	Node convert2Array(int [] arr) {
 	}
 
 	
+public static int lengthLL(Node head) {
+	int len=0;
+	Node temp=head;
+	while(temp!=null) {
+		temp=temp.next;
+		len++;
+	}
+	
+	return len;
+	
+}
 	public static void main(String[] args) {
 		int [] arr= {72,5,6,8};
 		Node head=convert2Array(arr);
-		System.out.println(head.data);
+		System.out.println(lengthLL(head));
 		
-		Node temp=head;
-		while(temp!=null) {
-			System.out.print(temp.data+" -- >");
-			temp=temp.next;
-		}
 		
 		/*
 		 * Node y=new Node(arr[3]); System.out.println(y.data);
