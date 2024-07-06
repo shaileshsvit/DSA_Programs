@@ -35,6 +35,13 @@ static	Node convert2Array(int [] arr) {
 		int [] arr= {72,5,6,8};
 		Node head=convert2Array(arr);
 		System.out.println(head.data);
+		
+		Node temp=head;
+		while(temp!=null) {
+			System.out.print(temp.data+" -- >");
+			temp=temp.next;
+		}
+		
 		/*
 		 * Node y=new Node(arr[3]); System.out.println(y.data);
 		 */
