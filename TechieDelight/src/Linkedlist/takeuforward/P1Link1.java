@@ -42,12 +42,24 @@ public static int lengthLL(Node head) {
 	return len;
 	
 }
+
+static int checkIFPresent(Node head,int val) {
+	Node temp=head;
+	while(temp!=null) {
+if(temp.data==val)
+	return 1;
+		
+		temp=temp.next;
+	
+	}
+	return 0;
+}
 	public static void main(String[] args) {
 		int [] arr= {72,5,6,8};
 		Node head=convert2Array(arr);
 		System.out.println(lengthLL(head));
 		
-		
+		System.out.println(checkIFPresent(head, 69));
 		/*
 		 * Node y=new Node(arr[3]); System.out.println(y.data);
 		 */
