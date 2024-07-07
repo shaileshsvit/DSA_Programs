@@ -18,6 +18,8 @@ class Node{
 public class P1Link1 {
 
 static	Node convert2Array(int [] arr) {
+	if(arr.length==0)
+		return null;
 	  Node head=new Node(arr[0]);
 	  Node mover=head;
 	  for(int i=1;i<arr.length;i++) {

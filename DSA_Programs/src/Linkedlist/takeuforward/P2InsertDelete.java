@@ -58,16 +58,79 @@ public static Node removeK(Node head,int k) {
 	}
 	return  head;
 }
+
+public static Node removeBack(Node head) {
+	Node temp=head;
+	if(head==null || head.next==null )
+		return null;
+	while(temp.next.next!=null) {
+		temp=temp.next;
+	}
+	temp.next=null;
+	
+	
+	return head;
+	
+}
+public static Node removeFront(Node head) {
+	if(head==null)
+		return null;
+	head=head.next;
+	
+	return head;
+}
+
+public static Node removePos(Node head,int k) {
+	if(head==null)
+		return head;
+	if(k==1) {
+		head=head.next;
+		return head;
+	}
+	
+	int cnt=0;
+	Node prev=null,temp=head;
+	while(temp!=null) {
+		cnt++;
+		if(cnt==k) {
+			prev.next=prev.next.next;
+			break;
+		}
+		prev=temp;
+		temp=temp.next;
+		
+	}
+	
+	
+	return head;
+}
+
+public static Node insertHead1(Node head,int val) {
+	Node temp=new Node(val);
+	temp.next=head;
+	head=temp;
+	return temp;
+}
+public static Node insertHead(Node head,int val) {
+	Node temp=new Node(val,head);
+	return temp;
+	
+}
 public static void main(String[] args) {
 	
-	int [] arr= {72,5,6,8};
+	int [] arr= {112,5,6,8,72};
 	P1Link1 p1=new P1Link1();
 	Node head=p1.convert2Array(arr);
     Traverse(head);
     
     System.out.println("\nLinked List after deletion of head");
-    head=removeK(head,3);
+    head=insertHead(head, 15);
     Traverse(head);
+
+    
+    //head=removeK(head,3);
+    //head=removeBack(head);
+     
     //head=removeTail(head);
     
     
