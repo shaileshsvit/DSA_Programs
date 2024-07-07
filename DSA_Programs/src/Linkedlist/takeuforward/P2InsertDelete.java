@@ -116,17 +116,85 @@ public static Node insertHead(Node head,int val) {
 	return temp;
 	
 }
+
+public static Node insertLast(Node head,int val) {
+	
+	if(head==null)
+	{
+		return new Node(val);
+	}
+	
+	Node temp=head;
+	
+	while(temp.next!=null) {
+		temp=temp.next;
+	}
+	Node newNode=new Node(val);
+	temp.next=newNode;
+	return head;
+}
+
+public static Node insertPos(Node head,int el,int k) {
+	if(head==null) {
+	if(k==1)
+		return new Node(el);
+	else 
+		return head;
+	}
+	if(k==1) {
+		
+		Node newNode=new Node(el,head);
+	}
+	int cnt=0;
+	Node temp=head;
+	while(temp!=null) {
+		cnt++;
+		if(cnt==k-1) {
+			Node x=new Node(el,temp.next);
+			temp.next=x;
+		}
+		temp=temp.next;
+	}
+	return head;
+}
+
+public static Node insertBeforeValue(Node head,int el,int val) {
+	if(head==null) {
+	return null;
+	}
+	if(head.data==val) {
+		
+		Node newNode=new Node(el,head);
+	}
+	Node temp=head;
+	while(temp.next!=null) {
+		if(temp.next.data==val) {
+			Node x=new Node(el,temp.next);
+			temp.next=x;
+			break;
+		}
+		temp=temp.next;
+	}
+	return head;
+}
+
+
 public static void main(String[] args) {
 	
-	int [] arr= {112,5,6,8,72};
+	int [] arr= {10,20,30,40};
 	P1Link1 p1=new P1Link1();
 	Node head=p1.convert2Array(arr);
     Traverse(head);
     
     System.out.println("\nLinked List after deletion of head");
-    head=insertHead(head, 15);
-    Traverse(head);
+    head=insertBeforeValue(head, 101, 20);
 
+    Traverse(head);
+//        head=insertPos(head, 100, 5);
+
+    
+//head=insertLast(head,100);
+    
     
     //head=removeK(head,3);
     //head=removeBack(head);
