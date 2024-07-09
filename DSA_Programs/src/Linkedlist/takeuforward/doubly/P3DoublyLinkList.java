@@ -105,6 +105,7 @@ public class P3DoublyLinkList {
 		
 	}
 	public static void deleteNode (Node temp) {
+		
 		Node prev=temp.back;
 		Node Front=temp.next;
 		if(Front==null) {
@@ -120,6 +121,13 @@ public class P3DoublyLinkList {
 		temp.back=temp.next=null;
 	}
 	
+	public static Node insertF(Node head,int val) {
+		Node newNode =new Node(val,head,null);
+		head.back=newNode;
+		newNode.next=head;
+		return newNode;
+	}
+	
 	
 	public static void main(String[] args) {
   
@@ -130,7 +138,8 @@ public class P3DoublyLinkList {
 		System.out.println();
 		//head=deleteTail(head);
 		//head=removeKthElement(head, 3);
-		deleteNode(head);
+	//	deleteNode(head);
+		head=insertF(head, 5);
 		print(head);
 	}
 	
