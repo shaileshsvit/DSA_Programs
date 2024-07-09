@@ -140,6 +140,26 @@ public class P3DoublyLinkList {
 		return head;
 		
 	}
+	public static Node	insertBeforeKth(Node head,int val,int k){
+		
+		if(k==1) {
+			return insertF(head, val);
+		}
+		Node temp=head;
+		int cnt=0;
+		while(temp!=null) {
+			cnt++;
+			if(cnt==k)
+				break;
+			temp=temp.next;
+		}
+		
+		Node prev=temp.back;
+		Node newNode=new Node(val,temp,prev);
+		prev.next=newNode;
+		temp.back=newNode;
+		return head;
+	}
 	
 	public static void main(String[] args) {
   
@@ -152,7 +172,8 @@ public class P3DoublyLinkList {
 		//head=removeKthElement(head, 3);
 	//	deleteNode(head);
 	//	head=insertF(head, 5);
-		head=insertTail(head,5);
+		//head=insertTail(head,5);
+		head=insertBeforeKth(head,5,7);
 		print(head);
 	}
 	
