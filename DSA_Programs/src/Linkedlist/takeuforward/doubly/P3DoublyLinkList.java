@@ -161,6 +161,14 @@ public class P3DoublyLinkList {
 		return head;
 	}
 	
+	
+	public static void insertBeforeNode(Node node,int value) {
+		Node prev=node.back;
+		Node newNode=new Node(value,node,prev);
+		prev.next=newNode;
+	    node.back=newNode;
+	    
+	}
 	public static void main(String[] args) {
   
 		int arr[]= {10,20,30,40};
@@ -168,12 +176,16 @@ public class P3DoublyLinkList {
 		print(head);
 		//head=deleteHead(head);
 		System.out.println();
+		insertBeforeNode(head.next.next,5);
+		
 		//head=deleteTail(head);
 		//head=removeKthElement(head, 3);
 	//	deleteNode(head);
 	//	head=insertF(head, 5);
 		//head=insertTail(head,5);
-		head=insertBeforeKth(head,5,7);
+		//head=insertBeforeKth(head,5,7);
+		
+		
 		print(head);
 	}
 	
