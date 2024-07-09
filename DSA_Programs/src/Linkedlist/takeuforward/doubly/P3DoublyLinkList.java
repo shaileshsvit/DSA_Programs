@@ -128,6 +128,18 @@ public class P3DoublyLinkList {
 		return newNode;
 	}
 	
+	public static Node insertBeforeTail(Node head,int val) {
+		Node temp=head;
+		while(temp.next!=null) {
+			temp=temp.next;
+		}
+		Node prev=temp.back;
+		Node newNode=new Node(val,temp,prev);
+		prev.next=newNode;
+		temp.back=newNode;
+		return head;
+		
+	}
 	
 	public static void main(String[] args) {
   
@@ -139,7 +151,8 @@ public class P3DoublyLinkList {
 		//head=deleteTail(head);
 		//head=removeKthElement(head, 3);
 	//	deleteNode(head);
-		head=insertF(head, 5);
+	//	head=insertF(head, 5);
+		head=insertTail(head,5);
 		print(head);
 	}
 	
